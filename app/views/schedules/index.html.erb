@@ -1,0 +1,37 @@
+<h3>ユーザー情報一覧</h3>
+
+<% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+ 
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>終日</th>
+          <th>スケジュール更新日時</th>
+          <th>確認</th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+ 
+      <tbody>
+        <% @schedules.each do |schedule| %>
+          <tr>
+            <td><%= schedule.id %></td>
+            <td><%= schedule.title %></td>
+            <td><%= schedule.startdate %></td>
+            <td><%= schedule.enddate %></td>
+            <td><%= schedule.allday %></td>
+            <td><%= schedule.updated_at %></td>
+            <p><%= link_to "確認", :new_schedule %></p>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+ 
+    <p><%= link_to "ユーザー新規登録", :new_schedule %></p>
