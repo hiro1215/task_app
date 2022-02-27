@@ -1,4 +1,4 @@
-<h3>ユーザー情報一覧</h3>
+<h3>スケジュール一覧</h3>
 
 <% if flash[:notice] %>
       <p class="notice"><%= flash[:notice] %></p>
@@ -26,7 +26,12 @@
             <td><%= schedule.title %></td>
             <td><%= schedule.startdate.to_fs(:datetime_jp) %></td>
             <td><%= schedule.enddate.to_fs(:datetime_jp) %></td>
-            <td><%= schedule.allday %></td>
+            <td><%=if schedule.allday == true
+                  "◯"
+                else
+                  "×"
+                end  %>
+            </td>
             <td><%= schedule.updated_at.to_fs(:datetime_jp) %></td>
             <td>
             <%= link_to "参照",schedule %>
@@ -35,7 +40,7 @@
             <%= link_to "編集", [:edit,schedule] %>
             </td>
             <td>
-            <%= link_to "削除", schedule,method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            <%= link_to "削除",schedule,data: {turbo_method: :delete}, turbo_confirm: "本当に削除しますか？"  %>
             </td>
 
 

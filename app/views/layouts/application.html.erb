@@ -17,7 +17,12 @@
     </header>
     <%= yield %>
     <footer>
-      <h1>現在の日時 : 2022年02月12日 スケジュール合計 : 7</h1>
+      <h1>
+      現在の日付<%= Date.current.strftime('%Y年 %m月 %d日') %>
+      <%= if current_page?(root_path)
+             "残りのタスク数は#{@schedules.length}個です"
+          end  %>
+      </h1>
     </footer>
   </body>
 </html>
