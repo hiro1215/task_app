@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(params.permit(:title, :startdate, :enddate, :allday, :introduction))
     if @schedule.save
       flash[:notice] ="ユーザーを新規登録しました"
-      redirect_to root_path
+      redirect_to :schedules
     else
       render "new"
     end
@@ -29,7 +29,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :introduction, :updated_at))
       flash[:notice] ="スケジュールの情報を更新しました"
-      redirect_to root_path
+      redirect_to :schedules
     else
       render "edit"
     end
@@ -39,7 +39,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
     flash[:notice] ="スケジュールを削除しました"
-    redirect_to :schedules,status: :see_other
+    redirect_to :schedules
   end 
   
 end
