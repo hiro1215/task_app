@@ -20,5 +20,6 @@ module TaskApp
     # config.eager_load_paths << Rails.root.join("extras")
     #ドメインamazon.comの許可
     config.hosts << ".amazonaws.com"
+    config.time_zone = 'Tokyo'
   end
 end
