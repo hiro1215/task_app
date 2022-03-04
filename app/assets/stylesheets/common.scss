@@ -2,14 +2,14 @@ header {
       width: 100%;
       padding: 15px;
       margin-bottom: 30px;
-      border-bottom: 7px solid orange;
+      background-color:#57D1C9;
     }
  
     footer{
       width: 100%;
       padding: 15px;
       margin-top: 30px;
-      border-top: 7px solid orange;
+      background-color: #F68655;
     }
  
     .partial {
@@ -18,16 +18,19 @@ header {
     }
     
     table th {
-        background-color: #fbc25b;
+      background-color: #3b9a9c;
         padding: 10px 20px;
     }
  
     table td {
-        background-color: #f9ecd5;
+      background-color: #96ceb4;
         padding: 10px 20px;
     }
  
     .notice {
         background-color: #ccf;
         padding: 5px;
+    }
+    h3 {
+      font-size: 26px;
     }
